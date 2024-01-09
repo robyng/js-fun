@@ -1,0 +1,124 @@
+/* Bridge CSS */
+.bridge-container {
+    height:65px;
+	color:white;
+	border-radius: 8px;
+    display: flex;
+    gap: 2px;
+    justify-content: space-between;
+    font-size: 1.3rem;
+	background: black;
+	cursor: pointer;
+    background: linear-gradient(180deg, #28411F 20.31%, #000 100%);
+}
+/* center div */
+#second-brother {
+  font-size: 1.8rem;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: black solid 2px;
+  border-right: black solid 2px;
+}
+
+.animation {
+  animation-name: highlight;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes highlight {
+  0% {box-shadow: none;}
+  50% {  box-shadow: 0 0px 10px 10px orange;}
+  100% {box-shadow: none;}
+}
+/* center changing text  */
+#second-brother::after {
+  content: "2nd";
+  position: relative;
+}
+
+/* outer left div */
+#first-brother {
+    border-radius:  8px 0px 0px 8px;
+    width: 20%;
+    height: 65px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 20px;
+    font-size: 1.5rem;
+}
+/* outer left div text */
+#first-brother::after {
+  content: "1st";
+  position: relative;
+}
+/* outer right div */
+#third-brother {
+    border-radius: 0px 8px 8px 0px;
+    width: 20%;
+    height: 65px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 20px;
+    font-size: 1.5rem;
+}
+
+.animation2 {
+  animation-name: highlight2;
+  animation-delay: .5s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+@keyframes highlight2 {
+  0% {box-shadow: none;}
+  50% {  box-shadow: 0 0px 10px 10px orange;}
+  100% {box-shadow: none;}
+}
+/* outer right div text */
+#third-brother::after {
+  content: "3rd";
+  position: relative;
+}
+
+@media (max-width: 625px) {
+	#first-brother-left::after {
+		margin-left: 12px;
+}
+}
+
+@media (max-width: 480px) {
+	#countdown-right, #countdown-left, #center-battery {
+  	font-size: 1rem;
+}
+}
+
+/* Brothers text */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+#first-bro-text {
+    display: block;
+    animation: fadeIn .5s;
+}
+#second-bro-text {
+	display: none;
+    animation: fadeIn .5s;
+}
+#third-bro-text {
+	display: none;
+    animation: fadeIn .5s;
+}
+
+.bridge-green {
+background: linear-gradient(180deg, #4A7938 20.31%, #000 100%);
+animation: fadeIn 1s;
+}
