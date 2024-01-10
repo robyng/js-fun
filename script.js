@@ -31,10 +31,14 @@ function firstBro() {
 const bridge = document.querySelector('.bridge');
 const secondBroEl = document.querySelector('#second-brother');
 const thirdBroEl = document.querySelector('#third-brother');
-const observer = new IntersectionObserver(entries => {
-  secondBroEl.classList.toggle('animation', entries[0].isIntersecting);
-  thirdBroEl.classList.toggle('animation', entries[0].isIntersecting);
-  console.log(entries)
+const observer = new IntersectionObserver((entries, observer) => {
+  for (const { isIntersecting } of entries ) {
+    if (isIntersecting) {
+      secondBroEl.classList.add('animation');
+      thirdBroEl.classList.add('animation');
+      observer.unobserve(bridge);
+    }
+  }
 });
 
 observer.observe(bridge);
