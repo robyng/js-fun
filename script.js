@@ -24,6 +24,7 @@ function firstBro() {
     document.getElementById("first-brother").classList.remove("bridge-green");
     document.getElementById("second-brother").classList.remove("bridge-green");
     document.getElementById("third-brother").classList.add("bridge-green");
+    
   }
 
 //battery animatiom
@@ -32,10 +33,15 @@ const secondBroEl = document.querySelector('#second-brother');
 const thirdBroEl = document.querySelector('#third-brother');
 const observer = new IntersectionObserver(entries => {
   secondBroEl.classList.toggle('animation', entries[0].isIntersecting);
-  thirdBroEl.classList.toggle('animation2', entries[0].isIntersecting);
+  thirdBroEl.classList.toggle('animation', entries[0].isIntersecting);
   console.log(entries)
 });
 
 observer.observe(bridge);
 
-  
+secondBroEl.addEventListener('animationend', removeAnimationAfterFinish);
+thirdBroEl.addEventListener('animationend', removeAnimationAfterFinish);
+
+function removeAnimationAfterFinish(event) {
+  event.target.classList.remove('animation');
+}
